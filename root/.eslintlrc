@@ -1,0 +1,35 @@
+{
+  "extends": [
+    "airbnb-base",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:vue/vue3-recommended",
+    "plugin:vue-scoped-css/vue3-recommended"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "vue"
+  ],
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "parser": "vue-eslint-parser", // これがないとVueファイルのtemplateがパースできません
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser", // TSファイル用のパーサをここで定義します
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "extraFileExtensions": [
+      "vue", // Vueファイルのパース用に必要です
+      "ts",
+      "tsx"
+    ],
+    "project": "./tsconfig.json", // .tsconfigを読み込みます
+    "useJSXTextNode": true
+  },
+  "rules": {
+    "import/no-unresolved": "off", // aliasを利用する場合必要です
+    "semi": "off",
+    "trailingComma": "off"
+  }
+}
